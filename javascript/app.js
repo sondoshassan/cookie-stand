@@ -23,7 +23,7 @@ var seattle = {
     var total;
     for (var i = 0; i< this.totalHours.length ;i++){
       total= this.customerPerHour()*this.averageCookies;
-      this.cookiesPerHourArr.push(total) ;
+      this.cookiesPerHourArr.push(parseInt(total)) ;
     }
     return this.cookiesPerHourArr;
   },
@@ -67,7 +67,7 @@ var tokyo = {
     var total;
     for (var i = 0; i< this.totalHours.length ;i++){
       total= this.customerPerHour()*this.averageCookies;
-      this.cookiesPerHourArr.push(total) ;
+      this.cookiesPerHourArr.push(parseInt(total)) ;
     }
     return this.cookiesPerHourArr;
   },
@@ -110,7 +110,7 @@ var dubai = {
     var total;
     for (var i = 0; i< this.totalHours.length ;i++){
       total= this.customerPerHour()*this.averageCookies;
-      this.cookiesPerHourArr.push(total) ;
+      this.cookiesPerHourArr.push(parseInt(total)) ;
     }
     return this.cookiesPerHourArr;
   },
@@ -153,7 +153,7 @@ var paris = {
     var total;
     for (var i = 0; i< this.totalHours.length ;i++){
       total= this.customerPerHour()*this.averageCookies;
-      this.cookiesPerHourArr.push(total) ;
+      this.cookiesPerHourArr.push(parseInt(total)) ;
     }
     return this.cookiesPerHourArr;
   },
@@ -196,7 +196,7 @@ var lima = {
     var total;
     for (var i = 0; i< this.totalHours.length ;i++){
       total= this.customerPerHour()*this.averageCookies;
-      this.cookiesPerHourArr.push(total) ;
+      this.cookiesPerHourArr.push(parseInt(total)) ;
     }
     return this.cookiesPerHourArr;
   },
