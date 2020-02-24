@@ -41,7 +41,7 @@ Store.prototype.render = function(){
   elTdInside = document.createElement('td');
   elTdInside.textContent = this.nameStore;
   elTrInside.appendChild(elTdInside);
-  for (var j=0;j<this.multiplyArr().length;j++){
+  for (var j=0;j<totalHours.length;j++){
     elTdInside = document.createElement('td');
     elTdInside.textContent = this.multiplyArr()[j];
     elTrInside.appendChild(elTdInside);
@@ -50,6 +50,7 @@ Store.prototype.render = function(){
   elTdInside.textContent = this.totalOfCookies;
   elTrInside.appendChild(elTdInside);
 };
+
 // the main
 var div = document.createElement('div');
 console.log(div);
