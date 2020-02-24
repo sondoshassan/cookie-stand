@@ -13,6 +13,7 @@ var seattle = {
   maxHourCustomer : 65,
   averageCookies : 6.3,
   cookiesPerHourArr : [],
+  totalCookies : 0,
   customerPerHour : function(){
     var cPerHour = getRandomInt(this.minHourCustomer,this.maxHourCustomer);
     return cPerHour;
@@ -25,6 +26,7 @@ var seattle = {
       total= this.customerPerHour()*this.averageCookies;
       this.cookiesPerHourArr.push(parseInt(total)) ;
     }
+    this.totalCookies = this.totalCookies + parseInt(total);
     return this.cookiesPerHourArr;
   },
   // now do html in javascript
@@ -46,10 +48,15 @@ var seattle = {
       unorderList.appendChild(list);
       list.textContent = `${this.totalHours[j]}: ${this.multiplyArr()[j]} cookies`;
     }
+    list = document.createElement('li');
+    unorderList.appendChild(list);
+    list.textContent = `Total: ${this.totalCookies} cookies`;
   }
 };
-
+seattle.multiplyArr();
 seattle.render();
+
+
 
 // second store tokyo
 var tokyo = {
@@ -57,6 +64,7 @@ var tokyo = {
   maxHourCustomer : 24,
   averageCookies : 1.2,
   cookiesPerHourArr : [],
+  totalCookies : 0,
   customerPerHour : function(){
     var cPerHour = getRandomInt(this.minHourCustomer,this.maxHourCustomer);
     return cPerHour;
@@ -69,6 +77,7 @@ var tokyo = {
       total= this.customerPerHour()*this.averageCookies;
       this.cookiesPerHourArr.push(parseInt(total)) ;
     }
+    this.totalCookies = this.totalCookies + parseInt(total);
     return this.cookiesPerHourArr;
   },
   // now do html in javascript
@@ -90,6 +99,9 @@ var tokyo = {
       unorderList.appendChild(list);
       list.textContent = `${this.totalHours[j]}: ${this.multiplyArr()[j]} cookies`;
     }
+    list = document.createElement('li');
+    unorderList.appendChild(list);
+    list.textContent = `Total: ${this.totalCookies} cookies`;
   }
 };
 tokyo.render();
@@ -100,6 +112,7 @@ var dubai = {
   maxHourCustomer : 38,
   averageCookies : 3.7,
   cookiesPerHourArr : [],
+  totalCookies : 0,
   customerPerHour : function(){
     var cPerHour = getRandomInt(this.minHourCustomer,this.maxHourCustomer);
     return cPerHour;
@@ -112,6 +125,7 @@ var dubai = {
       total= this.customerPerHour()*this.averageCookies;
       this.cookiesPerHourArr.push(parseInt(total)) ;
     }
+    this.totalCookies = this.totalCookies + parseInt(total);
     return this.cookiesPerHourArr;
   },
   // now do html in javascript
@@ -133,6 +147,9 @@ var dubai = {
       unorderList.appendChild(list);
       list.textContent = `${this.totalHours[j]}: ${this.multiplyArr()[j]} cookies`;
     }
+    list = document.createElement('li');
+    unorderList.appendChild(list);
+    list.textContent = `Total: ${this.totalCookies} cookies`;
   }
 };
 dubai.render();
@@ -143,6 +160,7 @@ var paris = {
   maxHourCustomer : 38,
   averageCookies : 2.3,
   cookiesPerHourArr : [],
+  totalCookies : 0,
   customerPerHour : function(){
     var cPerHour = getRandomInt(this.minHourCustomer,this.maxHourCustomer);
     return cPerHour;
@@ -155,6 +173,7 @@ var paris = {
       total= this.customerPerHour()*this.averageCookies;
       this.cookiesPerHourArr.push(parseInt(total)) ;
     }
+    this.totalCookies = this.totalCookies + parseInt(total);
     return this.cookiesPerHourArr;
   },
   // now do html in javascript
@@ -176,6 +195,9 @@ var paris = {
       unorderList.appendChild(list);
       list.textContent = `${this.totalHours[j]}: ${this.multiplyArr()[j]} cookies`;
     }
+    list = document.createElement('li');
+    unorderList.appendChild(list);
+    list.textContent = `Total: ${this.totalCookies} cookies`;
   }
 };
 paris.render();
@@ -186,6 +208,7 @@ var lima = {
   maxHourCustomer : 16,
   averageCookies : 4.6,
   cookiesPerHourArr : [],
+  totalCookies : 0,
   customerPerHour : function(){
     var cPerHour = getRandomInt(this.minHourCustomer,this.maxHourCustomer);
     return cPerHour;
@@ -198,6 +221,7 @@ var lima = {
       total= this.customerPerHour()*this.averageCookies;
       this.cookiesPerHourArr.push(parseInt(total)) ;
     }
+    this.totalCookies = this.totalCookies + parseInt(total);
     return this.cookiesPerHourArr;
   },
   // now do html in javascript
@@ -219,6 +243,9 @@ var lima = {
       unorderList.appendChild(list);
       list.textContent = `${this.totalHours[j]}: ${this.multiplyArr()[j]} cookies`;
     }
+    list = document.createElement('li');
+    unorderList.appendChild(list);
+    list.textContent = `Total: ${this.totalCookies} cookies`;
   }
 };
 lima.render();
