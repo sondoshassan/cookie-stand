@@ -1,5 +1,5 @@
 
-'user strict';
+'use strict';
 // function for random number
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -29,7 +29,7 @@ Store.prototype.multiplyArr = function(){
     multiTotal= (this.customerPerHour())*(this.averageCookies);
     cookiesPerHourArr.push(parseInt(multiTotal)) ;
   }
-  this.totalOfCookies += parseInt(multiTotal);// I have aproblem in this part it give me an correct number
+  this.totalOfCookies += parseInt(multiTotal);
   return cookiesPerHourArr;
 };
 Store.prototype.render = function(){
