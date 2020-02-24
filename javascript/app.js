@@ -29,8 +29,7 @@ Store.prototype.multiplyArr = function(){
     multiTotal= (this.customerPerHour())*(this.averageCookies);
     cookiesPerHourArr.push(parseInt(multiTotal)) ;
   }
-  this.totalOfCookies += parseInt(multiTotal);
-  console.log(this.totalOfCookies);
+  this.totalOfCookies += parseInt(multiTotal);// I have aproblem in this part it give me an correct number
   return cookiesPerHourArr;
 };
 Store.prototype.render = function(){
@@ -101,31 +100,34 @@ tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
+total();
+
 // total
-document.getElementsByTagName(theTable);
-var elTrTotal = document.createElement('tr');
-theTable.appendChild(elTrTotal);
-var elTdInside2;
-elTdInside2 = document.createElement('td');
-elTdInside2.textContent = 'Total';
-elTrTotal.appendChild(elTdInside2);
-var totalColumn = 0;
-var totalOfTotal = 0;
-for (var s = 0; s<totalHours.length;s++){
-  totalColumn += seattle.multiplyArr()[s];
-  totalColumn += tokyo.multiplyArr()[s];
-  totalColumn += dubai.multiplyArr()[s];
-  totalColumn += paris.multiplyArr()[s];
-  totalColumn += lima.multiplyArr()[s];
-  var elTdInside3 = document.createElement('td');
-  elTdInside3.textContent = totalColumn;
-  elTrTotal.appendChild(elTdInside3);
-  totalOfTotal += totalColumn;
-  totalColumn = 0;
-}
-var elTdFinal = document.createElement('td');
-elTdFinal.textContent = totalOfTotal;
-elTrTotal.appendChild(elTdFinal);
+function total(){
+  document.getElementsByTagName(theTable);
+  var elTrTotal = document.createElement('tr');
+  theTable.appendChild(elTrTotal);
+  var elTdInside2;
+  elTdInside2 = document.createElement('td');
+  elTdInside2.textContent = 'Total';
+  elTrTotal.appendChild(elTdInside2);
+  var totalColumn = 0;
+  var totalOfTotal = 0;
+  for (var s = 0; s<totalHours.length;s++){
+    totalColumn += seattle.multiplyArr()[s];
+    totalColumn += tokyo.multiplyArr()[s];
+    totalColumn += dubai.multiplyArr()[s];
+    totalColumn += paris.multiplyArr()[s];
+    totalColumn += lima.multiplyArr()[s];
+    var elTdInside3 = document.createElement('td');
+    elTdInside3.textContent = totalColumn;
+    elTrTotal.appendChild(elTdInside3);
+    totalOfTotal += totalColumn;
+    totalColumn = 0;
+  }
+  var elTdFinal = document.createElement('td');
+  elTdFinal.textContent = totalOfTotal;
+  elTrTotal.appendChild(elTdFinal);}
 
 
 
