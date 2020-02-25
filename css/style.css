@@ -1,5 +1,97 @@
+header {
+    background-color: burlywood;
+    padding: 2%;
+    height: 50%;
+    padding-bottom: 3%;
+    position: sticky;
+    top: 0;    
+}
+
+h1 {
+    font-size: 150%;
+    font-weight: bold;
+    float: left;
+}
+img {
+    width: 35%;
+    margin: 0 26%; 
+}
+#button {
+    margin: 0 41%;  
+    display: inline;
+}
+
+h2 {
+    font-size: 138%;
+    font-weight: bold;
+    margin: 1%;
+    background-color: darkkhaki;
+}
+nav {
+    float: right;
+    margin-right: 2%;
+    width: 37%;
+    padding-top: 0.5%;
+}
+
+nav ol li{
+    display: inline-block;
+    padding-left: 5%;
+    
+}
+nav ol li a{
+    text-decoration: none;
+    color: crimson;
+}
+a:hover {
+    color: cornsilk;
+}
+
+.maps {
+    border: black solid 2px;
+}
 table, td, th{
     border: 2px solid black;
     padding: 5px;
     border-collapse: collapse;
+}
+p {
+    margin: 1%;
+    padding: 1% 0;
+}
+ul#branch {
+    list-style: square;
+    margin: 0 2%;
+}
+.title {
+    font-weight: bold;
+    font-size: 110%;
+    margin-left: 5%;
+    clear: both;
+    display: -webkit-inline-box;
+    width: auto;
+}
+div {
+    display: inline-block;
+    padding: 2%;
+}
+
+ol.title li {
+    padding-right: 73%;
+    margin: 0;
+}
+footer {
+    text-align: center;
+}
+#htmlp {
+    text-decoration: none;
+   color: darkred;
+   border: fuchsia solid 1px;
+   padding:0 1%;
+    text-align: center;
+    margin-left: 50%;
+}
+#htmlp:hover {
+    color: dimgray;
+    border-radius: 20%;
 }
