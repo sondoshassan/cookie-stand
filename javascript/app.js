@@ -84,9 +84,10 @@ function header(){
     elTr1.appendChild(elTh);
     elTh.textContent = totalHours[i];
   }
-  elTh= document.createElement('th');
-  elTr1.appendChild(elTh);
-  elTh.textContent = 'Total';
+  elTr1.innerHTML += '<th>Total</th>';
+  // elTh= document.createElement('th');
+  // elTr1.appendChild(elTh);
+  // elTh.textContent = 'Total';
 }
 
 // call function and objects
@@ -108,10 +109,7 @@ function total(){
   document.getElementsByTagName(theTable);
   var elTrTotal = document.createElement('tr');
   theTable.appendChild(elTrTotal);
-  var elTdInside2;
-  elTdInside2 = document.createElement('td');
-  elTdInside2.textContent = 'Total';
-  elTrTotal.appendChild(elTdInside2);
+  elTrTotal.innerHTML = '<td>Total</td>';// using innerHtml
   var totalColumn = 0;
   var totalOfTotal = 0;
   for (var s = 0; s<totalHours.length;s++){
