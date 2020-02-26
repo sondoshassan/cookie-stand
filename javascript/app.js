@@ -14,7 +14,9 @@ function Store(nameStore,minHourCustomer,maxHourCustomer,averageCookies){
   this.minHourCustomer = minHourCustomer;
   this.maxHourCustomer = maxHourCustomer;
   this.averageCookies = averageCookies;
+  this.cookiesPerHourArr = [];
   this.totalOfCookies = 0;
+  this.multiplyArr();
 }
 // function for random number
 Store.prototype.customerPerHour = function(){
@@ -23,15 +25,16 @@ Store.prototype.customerPerHour = function(){
 };
 // function for cookies per hour
 Store.prototype.multiplyArr = function(){
-  var cookiesPerHourArr = [];
   var multiTotal;
   for (var i = 0; i< totalHours.length ;i++){
-    multiTotal= (this.customerPerHour())*(this.averageCookies);
-    cookiesPerHourArr.push(parseInt(multiTotal)) ;
+    multiTotal= Math.floor((this.customerPerHour())*(this.averageCookies));
+    this.cookiesPerHourArr.push(multiTotal) ;
+    this.totalOfCookies += this.cookiesPerHourArr[i];
   }
-  this.totalOfCookies += parseInt(multiTotal);
-  return cookiesPerHourArr;
+  // console.log('total here multi '+ multiTotal);
+  // this.totalOfCookies += multiTotal;
 };
+console.log('total here '+this.totalOfCookies);
 Store.prototype.render = function(){
   // body of table
   document.getElementsByTagName(theTable);
@@ -43,7 +46,7 @@ Store.prototype.render = function(){
   elTrInside.appendChild(elTdInside);
   for (var j=0;j<totalHours.length;j++){
     elTdInside = document.createElement('td');
-    elTdInside.textContent = this.multiplyArr()[j];
+    elTdInside.textContent = this.cookiesPerHourArr[j];
     elTrInside.appendChild(elTdInside);
   }
   elTdInside = document.createElement('td');
@@ -84,10 +87,9 @@ function header(){
     elTr1.appendChild(elTh);
     elTh.textContent = totalHours[i];
   }
-  elTr1.innerHTML += '<th>Total</th>';
-  // elTh= document.createElement('th');
-  // elTr1.appendChild(elTh);
-  // elTh.textContent = 'Total';
+  elTh= document.createElement('th');
+  elTr1.appendChild(elTh);
+  elTh.textContent = 'Total';
 }
 
 // call function and objects
@@ -109,15 +111,18 @@ function total(){
   document.getElementsByTagName(theTable);
   var elTrTotal = document.createElement('tr');
   theTable.appendChild(elTrTotal);
-  elTrTotal.innerHTML = '<td>Total</td>';// using innerHtml
+  // elTrTotal.innerHTML = '<td>Total</td>';
+  var tdTotalWord = document.createElement('td');
+  elTrTotal.appendChild(tdTotalWord);
+  tdTotalWord.textContent = 'Total';
   var totalColumn = 0;
   var totalOfTotal = 0;
   for (var s = 0; s<totalHours.length;s++){
-    totalColumn += seattle.multiplyArr()[s];
-    totalColumn += tokyo.multiplyArr()[s];
-    totalColumn += dubai.multiplyArr()[s];
-    totalColumn += paris.multiplyArr()[s];
-    totalColumn += lima.multiplyArr()[s];
+    totalColumn += seattle.cookiesPerHourArr[s];
+    totalColumn += tokyo.cookiesPerHourArr[s];
+    totalColumn += dubai.cookiesPerHourArr[s];
+    totalColumn += paris.cookiesPerHourArr[s];
+    totalColumn += lima.cookiesPerHourArr[s];
     var elTdInside3 = document.createElement('td');
     elTdInside3.textContent = totalColumn;
     elTrTotal.appendChild(elTdInside3);
@@ -127,6 +132,7 @@ function total(){
   var elTdFinal = document.createElement('td');
   elTdFinal.textContent = totalOfTotal;
   elTrTotal.appendChild(elTdFinal);}
+
 
 
 
