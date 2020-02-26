@@ -1,15 +1,16 @@
 
 'use strict';
+
+// global variables
+var totalHours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
+var newStores = [];
+
 // function for random number
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
-
-// global variables
-var totalHours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
-var newStores = [];
 
 // construct object
 function Store(nameStore,minHourCustomer,maxHourCustomer,averageCookies){
@@ -29,6 +30,7 @@ Store.prototype.customerPerHour = function(){
   var cPerHour = getRandomInt(this.minHourCustomer,this.maxHourCustomer);
   return cPerHour;
 };
+
 // function for cookies per hour
 Store.prototype.multiplyArr = function(){
   var multiTotal;
@@ -98,10 +100,8 @@ function header(){
 }
 
 // form
-var reCall =0;
 var shopForm = document.getElementById('mainForm');
 shopForm.addEventListener('submit',formShop);
-
 // function for form
 function formShop(event){
   event.preventDefault();
@@ -110,9 +110,8 @@ function formShop(event){
   var maxCust = event.target.maxCust.value;
   var avgCookie = event.target.avgCookie.value;
   new Store (nameStore,minCust,maxCust,avgCookie);
-  reCall++;
+  calculation();
 }
-
 
 // call function and objects
 header();
@@ -121,53 +120,46 @@ new Store ('tokyo',3,24,1.2);
 new Store ('dubai',11,38,3.7);
 new Store ('paris',20,38,2.3);
 new Store ('lima',2,16,4.6);
-if (reCall){
-  total();
-  reCall =0;
-}
+total();
+calculation();
 
 // total
 function total(){
   document.getElementsByTagName(theTable);
   var footer = document.createElement('tfoot');
   theTable.appendChild(footer);
-  var elTrTotal = document.createElement('tr');
-  footer.appendChild(elTrTotal);
-  // elTrTotal.innerHTML = '<td>Total</td>';
+  var totalRaw = document.createElement('tr');
+  footer.appendChild(totalRaw);
   var tdTotalWord = document.createElement('td');
-  elTrTotal.appendChild(tdTotalWord);
+  totalRaw.appendChild(tdTotalWord);
   tdTotalWord.textContent = 'Total';
-  var totalColumn = 0;
+  // index total
+  for (var i = 0;i<totalHours.length;i++){
+    var tdTotalIndex = document.createElement('td');
+    tdTotalIndex.setAttribute('id','total'+i);
+    totalRaw.appendChild(tdTotalIndex);}
+  // total of total
+  var tdTotalOfTotal = document.createElement('td');
+  tdTotalOfTotal.setAttribute('id','totalOfTotal');
+  totalRaw.appendChild(tdTotalOfTotal);
+}
+
+function calculation(){
+  var element = 0;
   var totalOfTotal = 0;
-  for (var l=0; l<totalHours.length;l++){
-    for (var s = 0; s<newStores.length;s++){
-      totalColumn += newStores[s].cookiesPerHourArr[l];
+  for (var i=0 ;i<totalHours.length ;i++){
+    for (var index = 0; index < newStores.length; index++) {
+      element += newStores[index].cookiesPerHourArr[i];
+      // console.log('tell me '+element);
     }
-    var elTdInside3 = document.createElement('td');
-    elTdInside3.textContent = totalColumn;
-    elTrTotal.appendChild(elTdInside3);
-    totalOfTotal += totalColumn;
-    totalColumn = 0;
+    var tdTotalIndex = document.getElementById('total'+i);
+    tdTotalIndex.textContent = element;
+    totalOfTotal += element;
+    element = 0;
   }
-  var elTdFinal = document.createElement('td');
-  elTdFinal.textContent = totalOfTotal;
-  elTrTotal.appendChild(elTdFinal);}
-
-
-
-
-
-// function formShope(event){
-//   event.preventDefault();
-//   var nameStore = event.target.name.value;
-//   var minCust = event.target.minCust.value;
-//   var maxCust = event.target.maxCust.value;
-//   var avgCookie = event.target.avgCookie.value;
-//   new Store (nameStore,minCust,maxCust,avgCookie);
-// }
-
-
-
+  var tdTotalOfTotal = document.getElementById('totalOfTotal');
+  tdTotalOfTotal.textContent = totalOfTotal;
+}
 
 
 
