@@ -95,3 +95,11 @@ footer {
     color: dimgray;
     border-radius: 20%;
 }
+
+input:invalid:required {
+    background-color: hotpink;
+  }
+
+  input:invalid {
+    box-shadow: 0 0 5px 1px red;
+  }
