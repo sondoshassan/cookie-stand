@@ -101,6 +101,7 @@ function header(){
 var reCall =0;
 var shopForm = document.getElementById('mainForm');
 shopForm.addEventListener('submit',formShop);
+
 // function for form
 function formShop(event){
   event.preventDefault();
