@@ -110,7 +110,9 @@ function formShop(event){
   var maxCust = event.target.maxCust.value;
   var avgCookie = event.target.avgCookie.value;
   new Store (nameStore,minCust,maxCust,avgCookie);
-  calculation();
+  // calculation();
+  theTable.deleteRow(theTable.rows.length-1);
+  total();
 }
 
 // call function and objects
@@ -121,45 +123,72 @@ new Store ('dubai',11,38,3.7);
 new Store ('paris',20,38,2.3);
 new Store ('lima',2,16,4.6);
 total();
-calculation();
+// calculation();
 
-// total
+// total another solution
 function total(){
   document.getElementsByTagName(theTable);
   var footer = document.createElement('tfoot');
   theTable.appendChild(footer);
-  var totalRaw = document.createElement('tr');
-  footer.appendChild(totalRaw);
+  var totalRow = document.createElement('tr');
+  footer.appendChild(totalRow);
   var tdTotalWord = document.createElement('td');
-  totalRaw.appendChild(tdTotalWord);
+  totalRow.appendChild(tdTotalWord);
   tdTotalWord.textContent = 'Total';
-  // index total
-  for (var i = 0;i<totalHours.length;i++){
-    var tdTotalIndex = document.createElement('td');
-    tdTotalIndex.setAttribute('id','total'+i);
-    totalRaw.appendChild(tdTotalIndex);}
-  // total of total
-  var tdTotalOfTotal = document.createElement('td');
-  tdTotalOfTotal.setAttribute('id','totalOfTotal');
-  totalRaw.appendChild(tdTotalOfTotal);
+  var total = 0;
+  var totalOfTotal = 0;
+  for (var l=0;l<totalHours.length;l++){
+    for (var i=0; i < newStores.length;i++){
+      total += newStores[i].cookiesPerHourArr[l];
+    }
+    var totalTd = document.createElement('td');
+    totalRow.appendChild(totalTd);
+    totalTd.textContent = total;
+    totalOfTotal += total;
+    total = 0;
+  }
+  var totalOfTotalTd = document.createElement('td');
+  totalRow.appendChild(totalOfTotalTd);
+  totalOfTotalTd.textContent = totalOfTotal;
 }
 
-function calculation(){
-  var element = 0;
-  var totalOfTotal = 0;
-  for (var i=0 ;i<totalHours.length ;i++){
-    for (var index = 0; index < newStores.length; index++) {
-      element += newStores[index].cookiesPerHourArr[i];
-      // console.log('tell me '+element);
-    }
-    var tdTotalIndex = document.getElementById('total'+i);
-    tdTotalIndex.textContent = element;
-    totalOfTotal += element;
-    element = 0;
-  }
-  var tdTotalOfTotal = document.getElementById('totalOfTotal');
-  tdTotalOfTotal.textContent = totalOfTotal;
-}
+// total
+// function total(){
+//   document.getElementsByTagName(theTable);
+//   var footer = document.createElement('tfoot');
+//   theTable.appendChild(footer);
+//   var totalRow = document.createElement('tr');
+//   footer.appendChild(totalRow);
+//   var tdTotalWord = document.createElement('td');
+//   totalRow.appendChild(tdTotalWord);
+//   tdTotalWord.textContent = 'Total';
+//   // index total
+//   for (var i = 0;i<totalHours.length;i++){
+//     var tdTotalIndex = document.createElement('td');
+//     tdTotalIndex.setAttribute('id','total'+i);
+//     totalRow.appendChild(tdTotalIndex);}
+//   // total of total
+//   var tdTotalOfTotal = document.createElement('td');
+//   tdTotalOfTotal.setAttribute('id','totalOfTotal');
+//   totalRow.appendChild(tdTotalOfTotal);
+// }
+
+// function calculation(){
+//   var element = 0;
+//   var totalOfTotal = 0;
+//   for (var i=0 ;i<totalHours.length ;i++){
+//     for (var index = 0; index < newStores.length; index++) {
+//       element += newStores[index].cookiesPerHourArr[i];
+//       // console.log('tell me '+element);
+//     }
+//     var tdTotalIndex = document.getElementById('total'+i);
+//     tdTotalIndex.textContent = element;
+//     totalOfTotal += element;
+//     element = 0;
+//   }
+//   var tdTotalOfTotal = document.getElementById('totalOfTotal');
+//   tdTotalOfTotal.textContent = totalOfTotal;
+// }
 
 
 
