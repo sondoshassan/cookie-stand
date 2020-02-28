@@ -106,14 +106,23 @@ shopForm.addEventListener('submit',formShop);
 function formShop(event){
   event.preventDefault();
   var nameStore = event.target.name.value;
+  nameStore= nameStore.toLowerCase();
+  console.log('name ='+nameStore);
   var minCust = event.target.minCust.value;
   var maxCust = event.target.maxCust.value;
   var avgCookie = event.target.avgCookie.value;
-  new Store (nameStore,minCust,maxCust,avgCookie);
-  // calculation();
-  theTable.deleteRow(theTable.rows.length-1);
-  total();
+  if (minCust>maxCust){
+    alert('error: the min value bigger than max');
+  }
+  else{
+    new Store (nameStore,minCust,maxCust,avgCookie);
+    // calculation();
+    theTable.deleteRow(theTable.rows.length-1);
+    total();
+  }
 }
+
+
 
 // call function and objects
 header();
