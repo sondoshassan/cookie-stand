@@ -207,10 +207,12 @@ input:invalid:required {
     padding: 1%;
     margin-top: 3%;
     position: relative;
+    background-color: rgb(197, 197, 197);
 }
 
 table {
     margin: 0 0 0 2%;
+    background-color: rgb(197, 197, 197);
 }
 legend {
     font-family: 'Spartan', 'Times New Roman', Times, serif;
