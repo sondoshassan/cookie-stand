@@ -9,6 +9,7 @@
 </head>
 <body>
     <header>
+        <div id="header">
         <h1>Pat's Salmon Cookies</h1>
         <nav>
             <ol>
@@ -18,10 +19,13 @@
                 <li><a href="#cont">Contact Information</a></li>
             </ol>
         </nav>
+    </div>
     </header>
     <main>
-        <article>
+        <article id="firstP">
             <h2 id="about">About Us</h2>
+            <h2 class="upImage">WELCOME TO OUR WEBSITE</h2>
+            <div id="allImage">
             <img class="mySlides" src="img/salmon.png">
             <img class="mySlides" src="img/chinook.jpg">
             <img class="mySlides" src="img/cutter.jpeg">
@@ -32,8 +36,8 @@
             <div id="button">
             <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
             <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
-        </div>
-            <p>we are cookies store we have five branches in:</p>
+        </div></div>
+            <p class='bold'>We are cookies store we have five branches in:</p>
             <ul id="branch">
                 <li>Seattle</li>
                 <li>Tokyo</li>
@@ -43,9 +47,9 @@
             </ul>
             <a id="htmlp" href="sales.html" target="_blank">Our Sales</a>
         </article>
-        <article>
+        <article id='secP'>
             <h2 id="hour">Hour Open</h2>
-            <p>All branches open from 6am to 7pm</p>
+            <p class="hour">All branches open from <span> 6 am</span> to <span> 7 pm </span></p>
         </article>
         <h2 id="loc">Location</h2>
         <ol class="title">
@@ -55,7 +59,7 @@
             <li>Paris</li>
             <li>Lima</li>
         </ol>
-    <div>
+    <div id="map">
         <iframe class="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172139.4161662446!2d-122.48214752341369!3d47.61294318323425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490102c93e83355%3A0x102565466944d59a!2sSeattle%2C%20WA%2C%20USA!5e0!3m2!1sen!2sjo!4v1582637294316!5m2!1sen!2sjo" width="200" height="150" frameborder="0" style="border:black solid 2px;" allowfullscreen=""></iframe>
         <iframe class="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.406807842244!2d-122.19122999999999!3d47.618223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906c8b9f6a5eb7%3A0x25935fe0f09beddb!2sTokyo%20Steak%20House!5e0!3m2!1sen!2sjo!4v1582637773453!5m2!1sen!2sjo" width="200" height="150" frameborder="0" style="border: black solid 2px;" allowfullscreen=""></iframe>
         
@@ -68,7 +72,7 @@
     </main>
 <footer>
     <h2 id="cont">Contact Information</h2>
-    <p>you can call us 075215455</p>
+    <p>You Can Call Us 075215455</p>
 </footer>
 <script>
     var slideIndex = 1;
